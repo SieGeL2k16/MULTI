@@ -1,0 +1,137 @@
+*****************************************************************************
+*         PROGRAM-HISTORY FOR MULTI-TOP BY SieGeL (tRSi/F-iNNOVATiON)       *
+*****************************************************************************
+
+V0.01 (06-28-95)  - Initial Version, a CLI-Tool which creates Top.. Bulls.
+                    Currently only the User-List option is working...
+
+      (06-30-95)  - Everything completed, now the testing should begin :)
+                    I've checked 899 Users (658kb user.data) and the creation
+                    of all 8 Bulls takes only 12.5 Sec....All currently needed
+                    bulls were created.
+
+V0.2  (10-24-95)  - Bugfixed Update
+
+                   -Fixed the Output of the User-Lister, now the Columms
+                    where correctly displayed.
+
+                   +Added a little bit more security, now all memory-allocs
+                    are surrounded by some checkings.
+
+                   +Added two new bulletins: Nuked Bytes / Nuked Files. Simply
+                    take a look in the supplied cfg-file for more infos :)
+
+V0.3  (11-18-95) -  Update
+
+                   +Rewritten the code to use the FAME.library, this also
+                    means that mULTI-tOP runs now ONLY with installed FAME-
+                    System, without it won't start anymore !!
+
+                   -Fixed the Layout in bulletin 'Nuked Bytes'. Now 14 digits
+                    will be used for the bytes instead of 9.
+
+                   +Added new bulletin for Top SysOp-Chatters. See supplied
+                    mULTI-TOP.cfg for more infos.
+
+V0.4  (01-19-96) -  Next Update (requires FAME.library V0.10 - 18.01.96) !!!
+
+                   *BUGREPORT FROM SCANDIC/DTL:
+                    Fixed a hard bug when calculating the Up/Downloader Bytes.
+                    If the total bytes reached 4 GB, the total counter was
+                    resettet to zero bytes and therefor the calculation was
+                    wrong...now fixed, as BloodRock/tRSi integrates two new
+                    functions in FAME.library, which allows to perform actions
+                    with 64-Bit Integers...this should be currently enough to
+                    calculate all board's stats correctly...:)
+
+      (02-08-96)   *BUGREPORT FROM [oRK!]:
+                    mULTI-cHECK won't check if you have enough users inside
+                    your user.datas to create the amount of users for the
+                    bulls...if you have i.e. only 15 users, but you've set
+                    the maxuser-output to 30 users, the last 15 users where
+                    filled with garbage...now fixed, if you have less users
+                    than entered as maxusers, the maxusers where set to your
+                    real amount of users found in user.datas.
+
+V0.5  (03-16-96) -  Next Update
+
+                   -Fixed a bug with the amount of users to display. If you
+                    have entered 9 as maximum users i.e., mULTI-tOP always
+                    displays 10 users..now fixed, always the right amount of
+                    users will be displayed. Also if you have only one valid
+                    user in your user.datas, this user will be shown in the
+                    bulletins now...(Hi mAGIC mAX! :)
+
+                   *BUG-REPORT FROM SCANDIC/DCN & dEATH aNGEL:
+                    mULTI-tOP crashes, but I don't know why, so I've changed
+                    ALL internal user-related variables to the ULONG format
+                    and enhanced all stringarrays to avoid possible memory
+                    overwritings. Also many more security (for the loss of
+                    speed) are built in to make programerrors safety. I've
+                    integrated also the SAS/C Stack Check, so if the crash
+                    results from an overflown stack, SAS reports this in a
+                    requester instead of guruing...
+
+                   *SUGGESTION FROM SCANDIC/DCN:
+                    mULTI-tOP now supports for every bull a specific header.
+                    Look in the docs for further informations about the
+                    headerfiles.
+
+V0.51 (03-18-96) -  MAJOR BUGFIX !!!!!!!!!!
+
+                   *FOUND AND FIXED THE CRASH BUG, WHICH ONLY OCCURES WHEN
+                    YOUR SYSTEM HAS MORE THAN 4GB UL/DL'S !! BIG THX TO
+                    DEATH ANGEL FOR HELPING ME TO FOUND THIS OUT !!!!!!!!!
+
+V0.52 (08-20-96) -  Small Update
+
+                   +After the update of the FAME.library mULTI-tOP is now
+                    able to calculate the total system stats correctly,
+                    because mULTI-tOP now uses the FAMENum64ToStr() function
+                    to calculate and display the values. You can now believe
+                    what mULTI-tOP calculates for your BBS ;)
+                    NOTE: YOU MUST HAVE FAME.LIBRARY V3++ INSTALLED !!!
+
+V0.60 (11-18-97) -  Major Update - REQUIRES FAME.library V5+ & OS 3.x !!!
+
+                   +Added 64-Bit Up-/Download Byte calculations, mULTI-tOP
+                    will now count all bytes upto 18TB. During the long size
+                    of the greatest possible 64-Bit Value (26 chars including
+                    seperators!), I've decided to rewrite the whole layout,
+                    judge yourself if it's okay for you. I'm currently working
+                    on a user-definable design, this will be finished in the
+                    next weeks....
+
+                   +Rewritten all memory related functions to use memory pools
+                    only. This result in faster working and also in less mem
+                    fragmentation, but requires now Kickstart V3.x...
+
+                   +Added new Bulletin called Top Overall Hacks. See .cfg file
+                    for more informations.
+
+V1.0  (05-12-98)  - Official Public Release Version
+
+                   +Added some more optimisations for the Release Version.
+                    Configurable Design has to wait until I have more time...
+
+V1.1  (06-15-98)  - Next public release....but for whom ??
+
+                   -Fixed a bug which is very interested...because NOBODY
+                    saws it...mULTI-tOP simply creates NO BULLETINS because of
+                    a wrong variable declaration...fixed and released for me!
+
+V1.2  (02-13-99)  - Public Release
+                    Added suggestion from EXON. Now the Sysop can be included
+                    in the bulletins. To allow this to work simply append the
+                    SHOWSYSOP option to your configuration as last entry.
+
+V1.3  (01-02-00)  - Betatest Release
+                    Added support for external designs! Every aspect of all
+                    statistics generated by Multi-Top is now freely
+                    configurable. A list of all commands can be found in the
+                    doc file including a brief description of all commands.
+
+V1.32 (01-05-00)  - Next Beta Update
+                   +Added more commands for external designs. Also using now
+                    locale.library to create 4-digit years.
+------------------------------------------------------------------------[EOF]-

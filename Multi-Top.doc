@@ -1,0 +1,141 @@
+-------------------------------------------------------------------------------
+            sHORT dOCS fOR mULTI-tOP bY SieGeL (tRSi/F-iNNOVATiON)
+-------------------------------------------------------------------------------
+
+1.General
+~~~~~~~~~
+- The faastest (I think!) Bullcreator ever written, creates 13 bulls with
+  568 Users found in the user.data in less than 12 sec.!
+
+- Configurable via Textfile for maximum speed
+
+- Supports for every bull an own Bullheader (V0.5).
+
+- Supports 64-Bit Calculations for User's Upload/Download bytes and also
+  for the total system byte statistics.
+
+- Supports external Design Files much like Bobo's Multi-Top. (V1.3)
+
+2.Installation
+~~~~~~~~~~~~~~
+First, copy the util wherever you want, I recommend to use FAME:Doors/ as
+destination, as this program is only useful when you've a working FAME
+installed.
+
+Copy the supplied Header/ directory to the same directory where mULTI-tOP
+is located. This directory contains all headers for the bulletins. Further
+informations at the end of the document!
+
+Now edit the supplied cfg-File to your own needs, but remember, it's name
+must be 'MULTI-TOP.CFG' and it has to be found in the same dir you stored
+Multi-Top!!!
+
+Here's an example for the Cfg-File of Multi-Top:
+
+--------- CUT HERE! ---------
+
+FAME:USER.dATA
+BULLETINS:BULL4.TXT
+BULLETINS:BULL5.TXT
+BULLETINS:BULL6.TXT
+BULLETINS:BULL7.TXT
+BULLETINS:BULL8.TXT
+BULLETINS:BULL9.TXT
+BULLETINS:BULL10.TXT
+BULLETINS:BULL11.TXT
+BULLETINS:BULL12.TXT
+BULLETINS:BULL13.TXT
+BULLETINS:BULL14.TXT
+BULLETINS:BULL15.TXT
+BULLETINS:BULL16.TXT
+pUNISHMENT iNC.
+20
+SHOWSYSOP
+FAME:DOORS/MT/ExtDesign/
+
+--------- CUT HERE! ---------
+
+Description of Configfile
+~~~~~~~~~~~~~~~~~~~~~~~~~
+Multitop only take care about the first 18 lines of this configfile, all other
+lines are ignored. If you don't want to create all bulletins, simply write
+a '-' instead of the path and filename for the bull, so Multi-Top skips this
+entry.
+
+                  1. Line : Path & name to user.data
+                  2. Line : Path & name for the User-List
+                  3. Line : Path & name for Top Uploaders (bytes)
+                  4. Line : Path & name for Top Downloaders (bytes)
+                  5. Line : Path & name for Top Uploaders (files)
+                  6. Line : Path & name for Top Downloaders (files)
+                  7. Line : Path & name for Top Upload CPS
+                  8. Line : Path & name for Top Download CPS
+                  9. Line : Path & name for Top Callers
+                 10. Line : Path & name for Top Message Writers
+                 11. Line : Path & name for Top Nuked Bytes
+                 12. Line : Path & name for Top Nuked Files
+                 13. Line : Path & name for Top SysOp-Chatters
+                 14. Line : Path & name for Top overall Hacks
+                 15. Line : Name of your BBS
+                 16. Amount of Users to display (User-List ignores!)
+                 17. If SHOWSYSOP is set, the SysOp will be added to the stats
+                 18. Path to all external design files
+
+Now you have to create a textfile (maybe called MULTITOP) and start Multitop.
+I.e., you have copied Multi-Top to your FAME:DOORS/MT/ Dir, you have to write
+in your Script:
+
+                          FAME:DOORS/MT/Multi-Top
+
+That's it! Infact of using the CFG-File no parameters needed for Multi-Top.
+Now copy this textfile to your Node logoff batches directories.
+
+Please don't forget to set the 'S'-ProtectionBit for your script to allow
+FAME to execute it by calling it with his name!!!
+
+
+3.How it works
+~~~~~~~~~~~~~~
+Simple, but efficient! When started, Multi-Top reads in the Configuration,than
+all your user.datas. After reading, it begins to create all bulletins you have
+supplied a filename for at once, no other readings from the user.data are
+neccessary, and this is the speed Multi-Top reaches when creating the bulls,
+but has the disadvantage of the amount of memory that mULTI-tOP uses. If you
+have not enough memory to store your complete user.datas into memory, mULTI-
+tOP won't be able to create bulletins.
+
+
+4.Headersupport (New for V0.5)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mULTI-tOP supports for every Bulletin an own header which will be displayed
+on top of the bull. To support this, you must have a directory called
+Header/, which must contain the following files for the header-support:
+
+    UL_BYTES.TXT  ---> Header for the Top Bytes Uploader Bull
+    DL_BYTES.TXT  ---> Header for the Top Bytes Downloader Bull
+    UL_FILES.TXT  ---> Header for the Top Files Uploader Bull
+    DL_FILES.TXT  ---> Header for the Top Files Downloader Bull
+      UL_CPS.TXT  ---> Header for the Top CPS Uploading Bull
+      DL_CPS.TXT  ---> Header for the Top CPS Downloading Bull
+     CALLERS.TXT  ---> Header for the Top Callers Bull
+    MESSAGES.TXT  ---> Header for the Top Message Writer Bull
+ NUKED_BYTES.TXT  ---> Header for the Top Nuked Bytes Bull
+ NUKED_FILES.TXT  ---> Header for the Top Nuked Files Bull
+       CHATS.TXT  ---> Header for the Top SysOp-Chatters Bull
+    USERLIST.TXT  ---> Header for the User-List Bull
+       HACKS.TXT  ---> Header for the Top overall hacks Bull (V0.60)
+
+You must not use this files, if you want no header for a specific bull,
+simply delete the according file and mULTI-tOP will create the bull without
+the header.
+
+
+5.Using External Design files (New for V1.3)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+mULTI-tOP supports now external design files, allowing you to customize the
+whole output mULTI-tOP generates.
+An external design file is just a 'template' to use for the output. It contains
+some special command strings which mULTI-tOP uses to replace them with the
+according values.
+
+-----------------------------------------------------------------[EOF]---------

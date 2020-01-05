@@ -1,0 +1,17 @@
+#include <strings.h>
+#include <dos/dos.h>
+#include <proto/dos.h>
+#include <exec/exec.h>
+#include <proto/exec.h>
+#include <ctype.h>
+#include <clib/utility_protos.h>
+#include <proto/utility.h>
+#include <exec/execbase.h>
+#include <exec/memory.h>
+#include <dos/rdargs.h>
+#include <proto/exec.h>
+#include <proto/dos.h>
+#include <stdlib.h>
+#include <strings.h>
+#include <clib/utility_protos.h>
+#include <proto/utility.h>
